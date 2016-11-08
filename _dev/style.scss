@@ -110,6 +110,7 @@
 	}
 
 	h1 {
+		cursor: default;
 		font-size: 40px;
 		font-weight: 400;
 		line-height: .95;
@@ -129,7 +130,7 @@
 		text-decoration: none;
 	}
 	p {
-		font-size: 18px;
+		font-size: 17px;
 		margin-top: 10px;
 
 		code {
@@ -183,8 +184,21 @@
 		h2 {
 			margin: 10px 0;
 
-			&:before {
-				@extend %partition;
+			a {
+				font-size: 15px;
+				font-weight: 500;
+				color: $blue;
+				border-bottom: 1px solid;
+				margin-left: 10px;
+				vertical-align: middle;
+
+				&:hover {
+					color: shade($blue, 20%);
+					background: $lightblue;
+				}
+				&:active {
+					color: shade($blue, 50%);
+				}
 			}
 		}
 		hr {
@@ -518,7 +532,9 @@
 
 // Buttons ===========================================================================
 	.share-box,
-	.follow-box {
+	.follow-box,
+	.suggestion-box {
+		cursor: default;
 		@extend %no-select;
 		@extend %no-tap;
 
@@ -546,13 +562,13 @@
 		padding: 10px 12px;
 		background: $white;
 		margin-top: 5px;
+		transition:
+			background $transition,
+			color $transition;
 	}
 
 	.share-button {
 		cursor: pointer;
-		transition:
-			background $transition,
-			color $transition;
 
 		&:hover {
 			transition-duration: $transition/2;
@@ -588,12 +604,19 @@
 		background: mix($white, $lightgray);
 		cursor: default;
 		margin-left: 5px;
-		// box-shadow: none;
+	}
+
+	.suggestion-box {
+		p {
+			font-size: 16px;
+		}
 	}
 
 
 // Footer ============================================================================
 	footer {
+		@extend %no-select;
+
 		ul {
 			margin: 15px 0;
 			list-style: none;
@@ -621,6 +644,13 @@
 			display: block;
 			padding: 10px 0;
 			line-height: 1.1;
+		}
+
+		small {
+			display: block;
+			cursor: default;
+			font-size: 1em;
+			margin-top: 10px;
 		}
 	}
 

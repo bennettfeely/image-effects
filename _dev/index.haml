@@ -68,6 +68,8 @@
         .container
           %h1 Image Effects with CSS
           %h2 Bennett Feely
+            %a{ href: "http://twitter.com/bennettfeely" } Twitter
+            %a{ href: "http://codepen.io/bennettfeely/" } CodePen
           %hr
           %h2 How it works
           %p Using one or more newer CSS properties (<code>background-blend-mode</code>, <code>mix-blend-mode</code>, or <code>filter</code>) gives us a surprising amount of possibilities to manipulate a single source image.
@@ -82,6 +84,7 @@
           %p{ data-label: "Fallback" } By default, the source image is displayed without any effects. When CSS <code>@supports</code> detects support for the required CSS properties and values for an individual effect, then the effect will be enabled. This amounts to a precise, native, and lightweight feature detection.
           %hr
           %p{ data-label: "Download" } A complete CSS library of these effects can be downloaded <a href="css/all.css">unminified (13kb)</a> or <a href="css/all.min.css">minified (8.9kb)</a>. Using <a href="https://css-tricks.com/snippets/htaccess/active-gzip-compression/">gzip</a>, the entire image effects library is less than 1300 bytes.
+          %p This project is available <a href="https://github.com/bennettfeely/image-effects">on GitHub</a>.
       %article.grid-item#pencil
         %figure.box
           .title.container
@@ -748,7 +751,6 @@
                 %svg{ class: "icon" }
                   %use{ xlink:href: "#copy-icon" }
                 Copy
-
       %footer.grid-item
         .container
           %h1 More CSS fun...
@@ -794,7 +796,13 @@
                 %a{ href: "https://medium.com/@bennettfeely/css-blend-modes-could-be-the-next-big-thing-in-web-design-6b51bf53743a#.gwfmepwa0" }
                   %span CSS Blend Modes could be the next big thing in Web Design <cite>by Bennett Feely</cite> (2013)
             %hr
-          &copy;2016 Bennett Feely
+            %small &copy;2016 Bennett Feely
+      %section.grid-item.suggestion-box
+        .container
+          %h3 Add your image effect on this page
+          %hr
+          %p
+            <a href="http://twitter.com/bennettfeely">Tweet</a> or <a href="mailto:bfeelyweb@gmail.com?Subject=Image%20effect%20suggestion">email</a> a link to your CSS image effect demo. If it's neat I'll add it to this page with your name and a link to your website.
 
     // Scripts
     %script{ src: "js/masonry.min.js" }
