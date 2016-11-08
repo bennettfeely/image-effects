@@ -1,0 +1,14 @@
+.mosaic-effect {
+  background-image: url(photo.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+@supports (background-blend-mode: overlay) {
+  .mosaic-effect {
+    background-image: url(photo.jpg), url(photo.jpg);
+    background-size: cover, 5% 5%;
+    background-position: center;
+    background-blend-mode: overlay;
+  }
+}
