@@ -1,6 +1,6 @@
 # Image Effects with CSS
 
-![Preview of image effects](http://bennettfeely.com/image-effects/img/preview_4x2.png)
+![Preview of image effects](http://bennettfeely.com/image-effects/img/preview_4x2.jpg)
 
 ## How it works
 Using one or more newer CSS properties (`background-blend-mode`, `mix-blend-mode`, or `filter`) gives us a surprising amount of possibilities to manipulate a single source image.

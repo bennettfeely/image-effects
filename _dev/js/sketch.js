@@ -7,16 +7,18 @@
     percentPosition: true,
     transitionDuration: 0
   });
-  msnry.layout();
 
+  layout();
 
-// ===================================================================================
-// Fastclick =========================================================================
-  if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
+  setTimeout(function(){
+    layout();
+  }, 1000);
+
+  function layout() {
+    msnry.layout();
   }
+
+
 
 
 // ===================================================================================
@@ -31,8 +33,8 @@
     return Math.floor((Math.random() * (approx/2)) + approx);
   }
 
-  twitter_shares.innerHTML = randomNumber(500);
-  facebook_shares.innerHTML = randomNumber(250);
+  twitter_shares.innerHTML = randomNumber(800);
+  facebook_shares.innerHTML = randomNumber(450);
 
 
 // ===================================================================================
@@ -54,6 +56,8 @@
   var scss_toggle = document.getElementsByClassName('scss-toggle');
 
   function toggleStyles() {
+    layout();
+
     var options = this.parentNode;
     var figcaption = options.parentNode;
     var toggle = options.childNodes;
@@ -86,10 +90,7 @@
   };
 
   for (var i = 0; i < options.length; i++) {
-    FastClick.attach(css_toggle[i]);
     css_toggle[i].addEventListener('click', toggleStyles, false);
-
-    FastClick.attach(scss_toggle[i]);
     scss_toggle[i].addEventListener('click', toggleStyles, false);
   }
 
@@ -97,8 +98,12 @@
 // ===================================================================================
 // Export to CodePen =================================================================
   function exportCodePen() {
+    console.log('exportCodePen();')
+
+    var img_src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Point_Reyes_Lighthouse_%28April_2012%29.jpg/593px-Point_Reyes_Lighthouse_%28April_2012%29.jpg';
+
     var class_name = this.parentNode.parentNode.parentNode.parentNode.getAttribute('id');
-    var HTML = '<div class="' + class_name + '-effect"></div>';
+    var HTML = '<div class="' + class_name + '-effect">\n\t<img src="' + img_src + '">\n</div>';
     var options = this.parentNode;
     var toggle = this.parentNode.childNodes;
       var css_toggle = toggle[0];
@@ -114,11 +119,12 @@
     }
     if(scss_toggle.classList.contains('on')) {
       var CSS_PRE_PROCESSOR = 'scss';
-      var CSS = effect_scss;
+      var CSS = effect_scss + '\n';
     }
 
-    var CSS = CSS.replace(/photo\.jpg/g, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Point_Reyes_Lighthouse_%28April_2012%29.jpg/593px-Point_Reyes_Lighthouse_%28April_2012%29.jpg');
-        CSS += '\n/* CodePen Styles */\nbody {\n\tdisplay: flex;\n\theight: 100vh;\n}\ndiv {\n\twidth: 400px;\n\theight: 300px;\n\tmargin: auto;\n}';
+    CSS = CSS.replace(/photo\.jpg/g, img_src);
+    CSS += '\n[class$=-effect] img {\n\tvertical-align: top !important;\n\tmargin: 0 !important;\n\topacity: 0 !important;\n}\n';
+    CSS += '\n/* CodePen Styles */\nbody {\n\tdisplay: flex;\n\theight: 100vh;\n}\ndiv {\n\tmargin: auto;\n}';
 
     var data = {
       head                : '<meta name="viewport" content="width=device-width">',

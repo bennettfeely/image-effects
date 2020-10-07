@@ -429,3 +429,15 @@
       bottom: 0;
    }
 }
+
+/* Hide the image ================================================================= */
+[class$=-effect] {
+   display: inline-block !important;
+   position: relative !important;
+}
+
+[class$=-effect] img {
+   vertical-align: top !important;
+   margin: 0 !important;
+   visibility: hidden !important;
+}

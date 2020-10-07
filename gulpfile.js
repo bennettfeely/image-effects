@@ -46,7 +46,10 @@ gulp.task('haml', function () {
     }))
     .pipe(htmlmin({
       collapseWhitespace: true,
-      collapseInlineTagWhitespace: true
+      collapseInlineTagWhitespace: true,
+      removeComments: true,
+      minifyCSS: true,
+      minifyJS: true
     }))
     .pipe(gulp.dest(''))
     .pipe(browserSync.reload({
